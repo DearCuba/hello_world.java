@@ -1,5 +1,6 @@
+import java.sql.SQLOutput;
 
-     /**
+/**
      * Реализовать класс-счетчик.
      * Полями класса должны выступать:
      * (+)  1) Название счетчика
@@ -25,7 +26,10 @@
      */
 
 public class Buffer {
-  public static void main(String[] args) {
+
+    public static void main(String[] args) {
+
+      System.out.println("Test");
   }
 }
 
