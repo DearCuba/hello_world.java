@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Lesson_8_Counter {
 
 // Поля класса:
-    public String countName;
+    public static String countName;
     public int countStart;
 
     public int rangeMin;
@@ -37,6 +37,10 @@ public class Lesson_8_Counter {
 
     public void displayRange() {
         System.out.printf("Min: %d \tMax: %d\n", rangeMin, rangeMax);
+    }
+
+    public void newName() {
+        countName = "New name";
     }
 
     public void increment() {

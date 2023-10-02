@@ -10,10 +10,13 @@ import java.util.Scanner;
 public class Lesson_10_1 {
 
   // Поля класа:
-  public static String vertical = "|";
-  public static String horizontal = "=";
-  public static String corner = "*";
-  public static String space = " ";
+
+  //public static final String RECTANGLE_LENGTH_REQUIRE_MESSAGE = "Input length of rectangle: ";
+  //public static final String RECTANGLE_WIDTH_REQUIRE_MESSAGE = "Input width of rectangle: ";
+  public static final String vertical = "||";
+  public static final String horizontal = "== ";
+  public static final String corner = "* ";
+  public static final String space = "   ";
 
   public static void main(String[] args) {
 
