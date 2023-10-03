@@ -9,22 +9,25 @@ import java.util.Scanner;
 
 public class Lesson_10_1 {
 
-  // Поля класа:
+  // Задаем поля класа для сканнера:
+  public static final String RECTANGLE_LENGTH_REQUIRE_MESSAGE = "Input length of rectangle: ";
+  public static final String RECTANGLE_WIDTH_REQUIRE_MESSAGE = "Input width of rectangle: ";
 
-  //public static final String RECTANGLE_LENGTH_REQUIRE_MESSAGE = "Input length of rectangle: ";
-  //public static final String RECTANGLE_WIDTH_REQUIRE_MESSAGE = "Input width of rectangle: ";
+  // Задаем поля класа для прямоугольника:
   public static final String vertical = "||";
-  public static final String horizontal = "== ";
+  public static final String horizontal = "==";
   public static final String corner = "* ";
-  public static final String space = "   ";
+  public static final String space = "  ";
+
+  // Создем сканнер:
+  public static final Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) {
 
 // Вводим значения длины и ширины прямоугольника
-    System.out.print("Input length of rectangle: ");
-    int length = scanner();
-    System.out.print("Input width of rectangle: ");
-    int width = scanner();
+    int length = scanner(RECTANGLE_LENGTH_REQUIRE_MESSAGE);
+    int width = scanner(RECTANGLE_LENGTH_REQUIRE_MESSAGE);
+    scanner.close();
 
 // Выводим прямоугольник в консоль используя методы
     stick(corner, width);
@@ -33,8 +36,8 @@ public class Lesson_10_1 {
   }
 
 // Методы:
-  public static int scanner() {
-    Scanner scanner = new Scanner(System.in);
+  public static int scanner(String requiringMessage) {
+    System.out.print(requiringMessage);
     return scanner.nextInt();
   }
 

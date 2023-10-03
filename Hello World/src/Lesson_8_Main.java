@@ -18,44 +18,44 @@ public class Lesson_8_Main {
 
         onePar.displayInfo();
         onePar.increment();
-        onePar.newName();
+        onePar.decrement();
         onePar.displayInfo();
 
 
-//// Используем методы increment и decrement
-//        onePar.increment();
-//        onePar.decrement();
-//        onePar.displayInfo();
-//
-//        twoPar.increment();
-//        twoPar.decrement();
-//        twoPar.displayInfo();
-//
-//// Используем методы userIncrement и userDecrement
-//        onePar.userIncrement();
-//        onePar.displayInfo();
-//
-//        twoPar.userDecrement();
-//        twoPar.displayInfo();
+// Используем методы increment и decrement
+        onePar.increment();
+        onePar.decrement();
+        onePar.displayInfo();
 
-//// Используем подсчет четных и нечетных цифр в диаопозоне от 1 до 100
-//
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.print("Enter an upper limit to count even and odd numbers: ");
-//        range.rangeMax = scanner.nextInt();
-//        scanner.close();
-//
-//        for (int i = 1; i <= range.rangeMax; i++) {
-//
-//            if (i % 2 == 0) {
-//                evenCount.increment();
-//            } else {
-//                oddCount.increment();
-//            }
-//        }
-//
-//        evenCount.displayInfo();
-//        oddCount.displayInfo();
+        twoPar.increment();
+        twoPar.decrement();
+        twoPar.displayInfo();
+
+// Используем методы userIncrement и userDecrement
+        onePar.userIncrement();
+        onePar.displayInfo();
+
+        twoPar.userDecrement();
+        twoPar.displayInfo();
+
+// Используем подсчет четных и нечетных цифр в диаопозоне от 1 до 100
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an upper limit to count even and odd numbers: ");
+        range.rangeMax = scanner.nextInt();
+        scanner.close();
+
+        for (int i = 1; i <= range.rangeMax; i++) {
+
+            if (i % 2 == 0) {
+                evenCount.increment();
+            } else {
+                oddCount.increment();
+            }
+        }
+
+        evenCount.displayInfo();
+        oddCount.displayInfo();
     }
 
 }
