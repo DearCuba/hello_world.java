@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class Lesson_8_Main {
 
-
     public static void main(String[] args) {
 
 // Создаем объеты
