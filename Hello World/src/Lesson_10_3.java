@@ -14,12 +14,21 @@ import java.util.Scanner;
  */
 
 public class Lesson_10_3 {
-  //int[] primeNumbers = new int[10];
+
+// Поля и методы класса (константы)
   public static final String requiredMessageIn = "Input prime number: ";
   public static final Scanner scanner = new Scanner(System.in);
 
+// System.out.println(checkPrime());
+
   public static void main(String[] args) {
-    System.out.println(checkPrime());
+
+    int[] arrayPrimeNumbers = new int[3];
+
+    returnArray(arrayPrimeNumbers);
+
+
+
   }
 
 // Метод сканнер
@@ -33,8 +42,18 @@ public class Lesson_10_3 {
     int setPrime = scanner();
     scanner.close();
     BigInteger bigInteger = BigInteger.valueOf(setPrime);
-    boolean probablePrime = bigInteger.isProbablePrime((int) Math.log(setPrime));
-    return probablePrime;
+    return bigInteger.isProbablePrime((int) Math.log(setPrime));
+  }
+
+// Метод изменения и вывода массива в консоль
+  public static int[] returnArray(int[] arrayPrimeNumbers) {
+    int length = arrayPrimeNumbers.length;
+    for (int i = 0; i < length; i++) {
+      arrayPrimeNumbers [i] = i;
+      System.out.print(arrayPrimeNumbers [i] + " ");
+    }
+    System.out.println();
+    return arrayPrimeNumbers;
   }
 
 
