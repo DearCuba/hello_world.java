@@ -16,19 +16,24 @@ import java.util.Scanner;
 public class Lesson_10_3 {
 
 // Поля и методы класса (константы)
+  public static final int arraySize = 5;
   public static final String requiredMessageIn = "Input prime number: ";
   public static final Scanner scanner = new Scanner(System.in);
 
-// System.out.println(checkPrime());
 
   public static void main(String[] args) {
 
-    int[] arrayPrimeNumbers = new int[3];
+    int[] arrayPrimeNumbers = new int[arraySize];
+    int arrayCount = arraySize;
 
-    returnArray(arrayPrimeNumbers);
+    for (int i = 0; arrayCount > 0; i++) {
 
-
-
+      if (i % 2 == 0 & i != 0) {
+        System.out.println(i + " is even");
+        arrayCount--;
+        arrayPrimeNumbers[arrayCount] = i;
+      }
+    }
   }
 
 // Метод сканнер
@@ -45,7 +50,7 @@ public class Lesson_10_3 {
     return bigInteger.isProbablePrime((int) Math.log(setPrime));
   }
 
-// Метод изменения и вывода массива в консоль
+// Метод изменения массива и вывода его в консоль
   public static int[] returnArray(int[] arrayPrimeNumbers) {
     int length = arrayPrimeNumbers.length;
     for (int i = 0; i < length; i++) {
