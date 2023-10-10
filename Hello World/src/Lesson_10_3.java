@@ -15,8 +15,9 @@ import java.util.Scanner;
 
 public class Lesson_10_3 {
 
-// Поля и методы класса (константы)
+// Поля и методы класса
   public static final int arraySize = 5;
+  public static int arrayCount = arraySize;
   public static final String requiredMessageIn = "Input prime number: ";
   public static final Scanner scanner = new Scanner(System.in);
 
@@ -24,16 +25,21 @@ public class Lesson_10_3 {
   public static void main(String[] args) {
 
     int[] arrayPrimeNumbers = new int[arraySize];
-    int arrayCount = arraySize;
 
     for (int i = 0; arrayCount > 0; i++) {
 
       if (i % 2 == 0 & i != 0) {
-        System.out.println(i + " is even");
         arrayCount--;
         arrayPrimeNumbers[arrayCount] = i;
       }
     }
+
+    for (int i : arrayPrimeNumbers){
+      System.out.print("[ " + i + " ]");
+    }
+
+    System.out.println(checkPrime(11));
+
   }
 
 // Метод сканнер
@@ -42,9 +48,17 @@ public class Lesson_10_3 {
     return scanner.nextInt();
   }
 
-// Метод "Тест простоты Миллера-Рабина"
+// Метод "Тест простоты Миллера-Рабина" + сканнер
   public static boolean checkPrime(){
     int setPrime = scanner();
+    scanner.close();
+    BigInteger bigInteger = BigInteger.valueOf(setPrime);
+    return bigInteger.isProbablePrime((int) Math.log(setPrime));
+  }
+
+  // Метод "Тест простоты Миллера-Рабина"
+  public static boolean checkPrime(int i){
+    int setPrime = i;
     scanner.close();
     BigInteger bigInteger = BigInteger.valueOf(setPrime);
     return bigInteger.isProbablePrime((int) Math.log(setPrime));
@@ -60,6 +74,4 @@ public class Lesson_10_3 {
     System.out.println();
     return arrayPrimeNumbers;
   }
-
-
 }
