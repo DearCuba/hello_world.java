@@ -17,20 +17,19 @@ public class Lesson_10_3 {
 
 // Поля и методы класса
   public static final int arraySize = 5;
-  public static int arrayCount = arraySize;
+  public static int arrayCount = 0;
+  public static int[] arrayPrimeNumbers = new int[arraySize];
   public static final String requiredMessageIn = "Input prime number: ";
   public static final Scanner scanner = new Scanner(System.in);
 
 
   public static void main(String[] args) {
 
-    int[] arrayPrimeNumbers = new int[arraySize];
-
-    for (int i = 0; arrayCount > 0; i++) {
+    for (int i = 0; arrayCount < arraySize; i++) {
 
       if (i % 2 == 0 & i != 0) {
-        arrayCount--;
         arrayPrimeNumbers[arrayCount] = i;
+        arrayCount++;
       }
     }
 
@@ -38,9 +37,10 @@ public class Lesson_10_3 {
       System.out.print("[ " + i + " ]");
     }
 
-    System.out.println(checkPrime(11));
-
+    System.out.println();
+    System.out.println(checkPrime(9));
   }
+
 
 // Метод сканнер
   public static int scanner() {
