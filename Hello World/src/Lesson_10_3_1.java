@@ -15,8 +15,10 @@ public class Lesson_10_3_1 {
 
   public static void main(String[] args) {
 
+  // Создаем массив
     int[] primeNumbers = new int[10];
 
+  // Перебераем массив
     for (int i = 0; i < primeNumbers.length; i++) {
       if (i == 0) {
         primeNumbers[i] = 2;
