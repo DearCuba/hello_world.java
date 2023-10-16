@@ -1,4 +1,4 @@
-public class Lesson_10_3_1 {
+public class Lesson_10_3_Main {
 
   /**
    * 1) Вынесите поиск простых чисел в отдельный класс.
@@ -15,16 +15,17 @@ public class Lesson_10_3_1 {
 
   public static void main(String[] args) {
 
-  // Создаем массив
     int[] primeNumbers = new int[10];
 
-  // Перебераем массив
     for (int i = 0; i < primeNumbers.length; i++) {
+      System.out.println("i: " + i);
       if (i == 0) {
         primeNumbers[i] = 2;
       } else {
         int addingValue = i == 1 ? 1 : 2;
+        System.out.println("addVal: " + addingValue);
         int number = primeNumbers[i - 1] + addingValue;
+        System.out.println("Number: " + number);
         primeNumbers[i] = findNextPrimeNumber(number, primeNumbers, i);
       }
     }

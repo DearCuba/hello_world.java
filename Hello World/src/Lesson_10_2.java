@@ -6,7 +6,7 @@ import java.util.Scanner;
  * (+) 2)Вывести в консоль сумму всех элементов полученного массива.
  */
 
-public class Lesson_10_3 {
+public class Lesson_10_2 {
 
 // Поля и методы класса
   public static final int arraySize = 10;
