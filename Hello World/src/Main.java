@@ -1,3 +1,4 @@
+
 public class Main {
 
   /**
@@ -15,13 +16,20 @@ public class Main {
 
   public static void main(String[] args) {
 
-    int[] primeNumbers = new int[10];
+    int[] primeNumbers = new int[5];
 
     PrimeNumbersSearch.findPrimeNumber(primeNumbers);
 
     System.out.println(sum(primeNumbers));
 
+    PrimeNumbersSearch.arrayPrint(primeNumbers);
+
+    System.out.println(sumFirstPrime(primeNumbers));
+
   }
+
+
+// Методы класса:
 
   //    Логика реализации удобного метода-обертки, по аналогии с предыдущей задачей
   static int sum(int[] numbers) {
@@ -29,10 +37,18 @@ public class Main {
   }
 
   static int sum(int[] numbers, int i) {
-    if (i == numbers.length - 1) {
-      return numbers[i];
-    }
 
-    return numbers[i] + sum(numbers, i + 1);
+      if (i == numbers.length - 1) {
+        return numbers[i];
+      } else {
+        return numbers[i] + sum(numbers, i + 1);
+      }
   }
+
+  //  Метод вывода суммы первых n задданных пользователем чисел массива
+  static int sumFirstPrime(int[] numbers) {
+    int i = 1;
+    return numbers[i-1];
+  }
+
 }
