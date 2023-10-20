@@ -1,10 +1,11 @@
+import java.util.Scanner;
 
 public class Main {
 
   /**
    * (+) 1) Вынесите поиск простых чисел в отдельный класс.
    * <p>
-   * 2) Реализуйте возможность вывода на экран суммы N первых простых чисел,
+   * (+) 2) Реализуйте возможность вывода на экран суммы N первых простых чисел,
    *    где N – число, введенное пользователем с клавиатуры;
    * <p>
    * 3) Вынесите нужные вам переменные в поля класса.
@@ -14,41 +15,20 @@ public class Main {
    * <p>
    */
 
+  public static Scanner scanner = new Scanner(System.in);
+
   public static void main(String[] args) {
 
     int[] primeNumbers = new int[5];
 
+    int arraySum = 0;
+
     PrimeNumbersSearch.findPrimeNumber(primeNumbers);
 
-    System.out.println(sum(primeNumbers));
+    System.out.println(PrimeNumbersSearch.sum(primeNumbers));
 
-    PrimeNumbersSearch.arrayPrint(primeNumbers);
+    System.out.println(PrimeNumbersSearch.sumFirstArrayNum(primeNumbers, arraySum));
 
-    System.out.println(sumFirstPrime(primeNumbers));
-
-  }
-
-
-// Методы класса:
-
-  //    Логика реализации удобного метода-обертки, по аналогии с предыдущей задачей
-  static int sum(int[] numbers) {
-    return sum(numbers, 0);
-  }
-
-  static int sum(int[] numbers, int i) {
-
-      if (i == numbers.length - 1) {
-        return numbers[i];
-      } else {
-        return numbers[i] + sum(numbers, i + 1);
-      }
-  }
-
-  //  Метод вывода суммы первых n задданных пользователем чисел массива
-  static int sumFirstPrime(int[] numbers) {
-    int i = 1;
-    return numbers[i-1];
   }
 
 }

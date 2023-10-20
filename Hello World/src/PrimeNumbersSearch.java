@@ -1,4 +1,9 @@
+import java.util.Scanner;
+
 public class PrimeNumbersSearch {
+
+  public static Scanner scanner = new Scanner(System.in);
+
 
 
   //  Поля класса:
@@ -8,14 +13,6 @@ public class PrimeNumbersSearch {
 
 
   //  Методы класа:
-
-  //    Вывод информации о масиве в консоль
-  public static void arrayPrint(int [] array) {
-    for (int j : array) {
-      System.out.print("[" + j + "]");
-    }
-    System.out.println();
-  }
 
   //    Метод поиска простых чисел
   public static void findPrimeNumber (int[] primeNumbers) {
@@ -55,6 +52,34 @@ public class PrimeNumbersSearch {
     return isPrime;
   }
 
+  //    Логика реализации удобного метода-обертки, по аналогии с предыдущей задачей
+  public static int sum(int[] numbers) {
+    return sum(numbers, 0);
+  }
+
+  public static int sum(int[] numbers, int i) {
+
+    if (i == numbers.length - 1) {
+      return numbers[i];
+    } else {
+      return numbers[i] + sum(numbers, i + 1);
+    }
+  }
+
+  //  Метод вывода суммы первых n задданных пользователем чисел массива
+  public static int sumFirstArrayNum(int[] numbers, int arraySum) {
+
+    System.out.print("Input sumNum: ");
+    int num = scanner.nextInt();
+    int length = numbers.length;
+
+    for (int i = 0; i < num && i < length; i++){
+      System.out.print(numbers[i] + " ");
+      arraySum = arraySum + numbers[i];
+    }
+    System.out.println();
+    return arraySum;
+  }
 
   public static void main(String[] args) {
   }
