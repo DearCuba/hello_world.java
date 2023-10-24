@@ -72,6 +72,7 @@ public class PrimeNumbersSearch {
     System.out.print("Input sumNum: ");
     int num = scanner.nextInt();
     int length = numbers.length;
+    scanner.close();
 
     for (int i = 0; i < num && i < length; i++){
       System.out.print(numbers[i] + " ");
