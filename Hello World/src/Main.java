@@ -19,13 +19,15 @@ public class Main {
 
   public static void main(String[] args) {
 
-    int[] primeNumbers = new int[5];
+    int arraySize = 10;
+
+    int[] primeNumbers = new int[arraySize];
 
     int arraySum = 0;
 
-    PrimeNumbersSearch.findPrimeNumber(primeNumbers);
+    PrimeNumbersSearch.findPrimeNumbers(primeNumbers);
 
-    System.out.println(PrimeNumbersSearch.sum(primeNumbers));
+    System.out.println(PrimeNumbersSearch.sumAllArrayNum(primeNumbers));
 
     System.out.println(PrimeNumbersSearch.sumFirstArrayNum(primeNumbers, arraySum));
 

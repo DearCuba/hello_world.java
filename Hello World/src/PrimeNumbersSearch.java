@@ -4,18 +4,19 @@ public class PrimeNumbersSearch {
 
   public static Scanner scanner = new Scanner(System.in);
 
+//  Поля класса (хз что тут точно нужно выносить для конструктора массива и нужно ли...):
+  int arrSize;
+  int arrSum;
+  int[] arr;
 
 
-  //  Поля класса:
+//  Конструкторы класса:
 
 
-  //  Конструкторы класса:
-
-
-  //  Методы класа:
+//  Методы класа:
 
   //    Метод поиска простых чисел
-  public static void findPrimeNumber (int[] primeNumbers) {
+  public static void findPrimeNumbers (int[] primeNumbers) {
     for (int i = 0; i < primeNumbers.length; i++) {
       if (i == 0) {
         primeNumbers[i] = 2;
@@ -53,16 +54,16 @@ public class PrimeNumbersSearch {
   }
 
   //    Логика реализации удобного метода-обертки, по аналогии с предыдущей задачей
-  public static int sum(int[] numbers) {
-    return sum(numbers, 0);
+  public static int sumAllArrayNum(int[] numbers) {
+    return sumAllArrayNum(numbers, 0);
   }
 
-  public static int sum(int[] numbers, int i) {
+  public static int sumAllArrayNum(int[] numbers, int i) {
 
     if (i == numbers.length - 1) {
       return numbers[i];
     } else {
-      return numbers[i] + sum(numbers, i + 1);
+      return numbers[i] + sumAllArrayNum(numbers, i + 1);
     }
   }
 
