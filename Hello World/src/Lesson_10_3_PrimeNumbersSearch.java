@@ -1,19 +1,25 @@
 import java.util.Scanner;
 
-public class PrimeNumbersSearch {
+public class Lesson_10_3_PrimeNumbersSearch {
 
   public static Scanner scanner = new Scanner(System.in);
 
 //  Поля класса (хз что тут точно нужно выносить для конструктора массива и нужно ли...):
   int arrSize;
-  int arrSum;
-  int[] arr;
-
 
 //  Конструкторы класса:
 
+  Lesson_10_3_PrimeNumbersSearch(int arrSize) {
+    this.arrSize = arrSize;
+  }
+
 
 //  Методы класа:
+
+  // Метод отображения инфомации о оъбекте
+  void displayInfo(){
+    System.out.printf("Array size: %d \n", arrSize);
+  }
 
   //    Метод поиска простых чисел
   public static void findPrimeNumbers (int[] primeNumbers) {

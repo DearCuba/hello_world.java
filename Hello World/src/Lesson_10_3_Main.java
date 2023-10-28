@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class Lesson_10_3_Main {
 
   /**
    * (+) 1) Вынесите поиск простых чисел в отдельный класс.
@@ -15,21 +15,22 @@ public class Main {
    * <p>
    */
 
+  public static int arraySum = 0;
+
   public static Scanner scanner = new Scanner(System.in);
 
   public static void main(String[] args) {
 
-    int arraySize = 10;
+    Lesson_10_3_PrimeNumbersSearch ten = new Lesson_10_3_PrimeNumbersSearch(10);
+    ten.displayInfo();
+    int[] primeNumbers = new int[ten.arrSize];
 
-    int[] primeNumbers = new int[arraySize];
 
-    int arraySum = 0;
+    Lesson_10_3_PrimeNumbersSearch.findPrimeNumbers(primeNumbers);
 
-    PrimeNumbersSearch.findPrimeNumbers(primeNumbers);
+    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumAllArrayNum(primeNumbers));
 
-    System.out.println(PrimeNumbersSearch.sumAllArrayNum(primeNumbers));
-
-    System.out.println(PrimeNumbersSearch.sumFirstArrayNum(primeNumbers, arraySum));
+    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumFirstArrayNum(primeNumbers, arraySum));
 
   }
 
