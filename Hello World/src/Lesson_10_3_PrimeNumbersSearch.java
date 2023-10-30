@@ -4,21 +4,26 @@ public class Lesson_10_3_PrimeNumbersSearch {
 
   public static Scanner scanner = new Scanner(System.in);
 
-//  Поля класса (хз что тут точно нужно выносить для конструктора массива и нужно ли...):
-  int arrSize;
+//  Поля класса:
+
+  //    Вынося массив как константу уровня объекта,
+  //    мы получаем возможность не передавать ее как параметр.
+  //    А также использовать массив повторно, если простые числа уже найдены
+  public final int[] primeNumbers;
+
 
 //  Конструкторы класса:
 
-  Lesson_10_3_PrimeNumbersSearch(int arrSize) {
-    this.arrSize = arrSize;
+  // Конструктор для создания массива
+  public Lesson_10_3_PrimeNumbersSearch(int arrSize) {
+    this.primeNumbers = new int[arrSize];
   }
-
 
 //  Методы класа:
 
   // Метод отображения инфомации о оъбекте
   void displayInfo(){
-    System.out.printf("Array size: %d \n", arrSize);
+    System.out.printf("Array size: %d \n", primeNumbers.length);
   }
 
   //    Метод поиска простых чисел

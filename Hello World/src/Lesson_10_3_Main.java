@@ -23,14 +23,12 @@ public class Lesson_10_3_Main {
 
     Lesson_10_3_PrimeNumbersSearch ten = new Lesson_10_3_PrimeNumbersSearch(10);
     ten.displayInfo();
-    int[] primeNumbers = new int[ten.arrSize];
 
+    Lesson_10_3_PrimeNumbersSearch.findPrimeNumbers(ten.primeNumbers);
 
-    Lesson_10_3_PrimeNumbersSearch.findPrimeNumbers(primeNumbers);
+    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumAllArrayNum(ten.primeNumbers));
 
-    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumAllArrayNum(primeNumbers));
-
-    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumFirstArrayNum(primeNumbers, arraySum));
+    System.out.println(Lesson_10_3_PrimeNumbersSearch.sumFirstArrayNum(ten.primeNumbers, arraySum));
 
   }
 
