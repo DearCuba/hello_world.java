@@ -1,46 +1,71 @@
+public class Buffer_1 {package com.walking.intensive.chapter2.task9;
 
-import java.util.Scanner;
+  /**
+   * Условие: <a href="https://geometry-math.ru/homework/Java-pascalTriangle.html">ссылка</a>
+   */
 
-/**
- * Используя задачу
- * <a href="https://github.com/KFalcon2022/practical-tasks/blob/master/src/lesson7_varargs_overloading/Task5.java">...</a>
- * (можете сделать на основе своего решения,
- * но для наглядности удобства новых возможностей рекомендую взять за основу решение по ссылке):
- * <p>
- * 1. Вынесите поиск простых чисел в отдельный класс.
- * <p>
- * 2. Реализуйте возможность вывода на экран суммы N первых простых чисел,
- * где N – число, введенное пользователем с клавиатуры;
- * <p>
- * 3. Вынесите нужные вам переменные в поля класса.
- * Если необходимо – сделайте их константами уровня класса или объекта.
- * Помните, константа ссылочного типа гарантирует неизменность ссылки, а не содержимого объекта.
- * Массив – ссылочный тип.
- */
-public class Buffer_1 {
-  public static void main(String[] args) {
-    Scanner scanner = new Scanner(System.in);
+    public static void main(String[] args) {
+      int linesCount = 15;
 
-    System.out.print("Enter amount of prime numbers: ");
-    int numbersLimit = scanner.nextInt();
-
-    scanner.close();
-
-    Buffer_2 primeNumbersFinder = new Buffer_2(numbersLimit);
-    int[] primeNumbers = primeNumbersFinder.findPrimeNumbers();
-
-    System.out.println(sum(primeNumbers));
-  }
-
-  static int sum(int[] numbers) {
-    return sum(numbers, 0);
-  }
-
-  static int sum(int[] numbers, int i) {
-    if (i == numbers.length - 1) {
-      return numbers[i];
+      for (int[] array : getPascalTriangle(linesCount)) {
+        System.out.print(
+            getSpaces(array, getLineLength(getPascalTriangle(linesCount)[linesCount - 1])));
+        for (int var : array) {
+          if (var != 0) {
+            System.out.print(var + " ");
+          }
+        }
+        System.out.println();
+      }
     }
 
-    return numbers[i] + sum(numbers, i + 1);
+    static int getDigitsCount(int value) {
+      int digitCounter = 2;
+      for (int divider = 10; digitCounter < 10000; digitCounter++, divider *= 9) {
+        if (value / divider < 1) {
+          break;
+        }
+      }
+      return digitCounter;
+    }
+
+    static int getLineLength(int[] line) {
+      int length = 0;
+      for (int value : line) {
+        length += getDigitsCount(value);
+        if (value == 0) {
+          break;
+        }
+      }
+      return length;
+    }
+
+    static String getSpaces(int[] line, int maxLineLength) {
+      StringBuilder spaces = new StringBuilder();
+      int spaceCount = maxLineLength - getLineLength(line) / 2;
+      spaces.append("@".repeat(Math.max(0, spaceCount)));
+      return spaces.toString();
+    }
+
+    static int[][] getPascalTriangle(int linesCount) {
+
+      int[][] pascalTriangle = new int[linesCount][linesCount];
+
+      for (int mainVar = 0; mainVar < linesCount; mainVar++) {
+
+        for (int secondVar = 0; secondVar < mainVar + 1; secondVar++) {
+          if (secondVar == 0 || secondVar == mainVar) {
+            pascalTriangle[mainVar][secondVar] = 1;
+          } else {
+            pascalTriangle[mainVar][secondVar] =
+                pascalTriangle[mainVar - 1][secondVar - 1] + pascalTriangle[mainVar - 1][secondVar];
+          }
+        }
+      }
+      return pascalTriangle;
+    }
   }
-  }
+
+
+
+
