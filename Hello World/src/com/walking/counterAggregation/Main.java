@@ -5,14 +5,9 @@ package com.walking.counterAggregation;
  * холодную воду, горячую воду и электричество. Обозначение программы в рамках компании —
  * counterAggregation.
  * <p>
- * Реализовать класс Main, ответственность класса:
- * - создание счетчиков
- * - также реализовать в классе Main приватный метод, который позволяет вывести
- * значения счетчиков в виде: <Название счетчика>: <Значение счетчика>.
- * Например:
- * Газ: 2333ч
- * Горячая вода: 0
- * Холодная вода: 23
+ * Реализовать класс Main, ответственность класса: (+) создание счетчиков (+) также реализовать в
+ * классе Main приватный метод, который позволяет вывести значения счетчиков в виде: <Название
+ * счетчика>: <Значение счетчика>. Например: Газ: 2333 Горячая вода: 0 Холодная вода: 23
  * <p>
  */
 
@@ -21,30 +16,34 @@ public class Main {
   public static void main(String[] args) {
 
     // Создаем объекты
-    Counter gas = new Counter("Gas", "kWh");
-    gas.displayObjectInfo();
+    Counter gas = new Counter("Gas", "kWh", 3);
+    Counter electricity = new Counter("Electricity", "Ah", 0);
+    Counter hotWater = new Counter("Hot water", "Gcal", 0);
+    Counter coldWater = new Counter("Cold water", "m3", 10);
 
-    Counter electricity = new Counter("Electricity", "kWh", 0);
-    electricity.displayObjectInfo();
+    // Присваиваем массиву объектов класса CounterService созданные объекты
+    CounterService.countersArray[0] = gas;
+    CounterService.countersArray[1] = electricity;
+    CounterService.countersArray[2] = hotWater;
+    CounterService.countersArray[3] = coldWater;
 
-    //Использеум различную логику
-    gas.setCounterValue(gas.enterValue(gas.getCounterName()));
-    gas.displayObjectInfo();
+    // Использеум различную логику для теста
+    displayCountersInfo();
+    CounterService.selectCounter();
+    displayCountersInfo();
 
-    System.out.println(gas.getCounterName());
-    System.out.println(gas.getCounterValue());
-    System.out.println(gas.getCounterUnits());
+    CounterService.inputInt.close();
+    CounterService.inputString.close();
+  }
 
-    System.out.println(" ");
+  // Методы класса
+  private static void displayCountersInfo() {
+    System.out.println("Current counters values:");
 
-    electricity.setCounterValue(gas.enterValue(electricity.getCounterName()));
-    electricity.displayObjectInfo();
-
-    System.out.println(electricity.getCounterName());
-    System.out.println(electricity.getCounterValue());
-    System.out.println(electricity.getCounterUnits());
-
-    Counter.input.close();
-
+    for (int i = 0; i < CounterService.countersArray.length; i++) {
+      System.out.printf("%s - %d %s\n", CounterService.countersArray[i].getCounterName(),
+          CounterService.countersArray[i].getCounterValue(),
+          CounterService.countersArray[i].getCounterUnits());
+    }
   }
 }

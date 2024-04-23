@@ -1,30 +1,147 @@
 package com.walking.counterAggregation;
 
+import java.util.Scanner;
+
 /**
  * Разработать программу в рамках компании com.walking, позволяющую следить за счетчиками на газ,
  * холодную воду, горячую воду и электричество. Обозначение программы в рамках компании —
  * counterAggregation.
  * <p>
- * Также реализовать сервис CounterService, зона ответственности которого:
- * - хранение массива доступных счетчиков
- * - получение всех доступных счетчиков
- * - получение доступа к счетчику по названию
- * - увеличение значения счетчика на единицу или заданное значение
- * - сброс счетчика до нулевого значения.
+ * Также реализовать сервис CounterService, зона ответственности которого: (+) хранение массива
+ * доступных счетчиков (+) получение всех доступных счетчиков (+) получение доступа к счетчику по
+ * названию (+) увеличение значения счетчика на единицу или заданное значение (+) сброс счетчика до
+ * нулевого значения.
  * <p>
  */
 
 public class CounterService {
 
-    public static void main(String[] args) {
-        Counter[] counters = new Counter[2];
-        counters[0] = new Counter();
-        counters[1] = new Counter("11","22", 33);
+  // Создаем массив объектов
+  protected static Counter[] countersArray = new Counter[4];
 
-        for (int i = 0; i < counters.length; i++) {
-            System.out.println(counters[i].getCounterName());
-            System.out.println(counters[i].getCounterUnits());
-            System.out.println(counters[i].getCounterValue());
-        }
+  // Методы класса
+  public static Scanner inputInt = new Scanner(System.in);
+  public static Scanner inputString = new Scanner(System.in);
+
+  public static void resetCounterValue(Counter counterValue) {
+    counterValue.setCounterValue(0);
+  }
+
+  public static void incrementCounterValue(Counter counterValue) {
+    counterValue.setCounterValue(counterValue.getCounterValue() + 1);
+  }
+
+  public static void incrementCounterValueByUserValue(Counter counterValue) {
+    counterValue.setCounterValue(inputInt.nextInt());
+  }
+
+  public static void showCountersArrayList() {
+    System.out.println("Available counters:");
+
+    for (int i = 0; i < countersArray.length; i++) {
+      System.out.printf("%s\n", CounterService.countersArray[i].getCounterName());
     }
+    System.out.println();
+  }
+
+  public static void selectCounter() {
+    CounterService.showCountersArrayList();
+    System.out.println("Please select counter:");
+
+    switch (inputString.nextLine()) {
+      case "Gas" -> {
+        System.out.println(
+            """
+                Available operations:
+                1) Increment value by one
+                2) Increment value by user value
+                3) Reset value
+                4) Choose a different counter
+                5) Exit program
+                """);
+        System.out.printf("Please select number of operation with %s: \n",
+            countersArray[0].getCounterName());
+        selectOperation(countersArray[0].getCounterName(), countersArray[0]);
+      }
+      case "Electricity" -> {
+        System.out.println(
+            """
+                Available operations:
+                1) Increment value by one
+                2) Increment value by user value
+                3) Reset value
+                4) Choose a different counter
+                5) Exit program
+                """);
+        System.out.printf("Please select number of operation with %s: \n",
+            countersArray[1].getCounterName());
+        selectOperation(countersArray[1].getCounterName(), countersArray[1]);
+      }
+      case "Hot water" -> {
+        System.out.println(
+            """
+                Available operations:
+                1) Increment value by one
+                2) Increment value by user value
+                3) Reset value
+                4) Choose a different counter
+                5) Exit program
+                """);
+        System.out.printf("Please select number of operation with %s: \n",
+            countersArray[2].getCounterName());
+        selectOperation(countersArray[2].getCounterName(), countersArray[2]);
+      }
+      case "Cold water" -> {
+        System.out.println(
+            """
+                Available operations:
+                1) Increment value by one
+                2) Increment value by user value
+                3) Reset value
+                4) Choose a different counter
+                5) Exit program
+                """);
+        System.out.printf("Please select number of operation with %s: \n",
+            countersArray[3].getCounterName());
+        selectOperation(countersArray[3].getCounterName(), countersArray[3]);
+      }
+      default -> {
+        System.out.println("Selected counter does not exist\n");
+        selectCounter();
+      }
+    }
+  }
+
+  public static void selectOperation(String counterName, Counter countersArray) {
+
+    switch (inputString.nextInt()) {
+      case 1 -> {
+        incrementCounterValue(countersArray);
+        System.out.printf("%s counter increased by one\n", counterName);
+      }
+      case 2 -> {
+        System.out.printf("Enter %s value:\n", counterName);
+        incrementCounterValueByUserValue(countersArray);
+      }
+      case 3 -> {
+        resetCounterValue(countersArray);
+        System.out.printf("%s counter reset\n", counterName);
+      }
+      case 4 -> selectCounter();
+      case 5 -> {
+        System.out.println("Bye :)");
+        System.exit(0);
+      }
+      default -> {
+        System.out.println("Selected operation does not exist.\n");
+        System.out.printf("Please select number of operation with %s: \n", counterName);
+        selectOperation(counterName, countersArray);
+      }
+    }
+  }
 }
+
+
+
+
+
