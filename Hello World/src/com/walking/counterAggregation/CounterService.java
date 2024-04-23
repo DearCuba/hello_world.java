@@ -44,63 +44,43 @@ public class CounterService {
     System.out.println();
   }
 
+  public static void showAvailableOperationsList() {
+    System.out.println(
+        """
+            Available operations:
+            1) Increment value by one
+            2) Increment value by user value
+            3) Reset value
+            4) Choose a different counter
+            5) Exit program
+            """);
+  }
+
   public static void selectCounter() {
     CounterService.showCountersArrayList();
     System.out.println("Please select counter:");
 
     switch (inputString.nextLine()) {
       case "Gas" -> {
-        System.out.println(
-            """
-                Available operations:
-                1) Increment value by one
-                2) Increment value by user value
-                3) Reset value
-                4) Choose a different counter
-                5) Exit program
-                """);
+        showAvailableOperationsList();
         System.out.printf("Please select number of operation with %s: \n",
             countersArray[0].getCounterName());
         selectOperation(countersArray[0].getCounterName(), countersArray[0]);
       }
       case "Electricity" -> {
-        System.out.println(
-            """
-                Available operations:
-                1) Increment value by one
-                2) Increment value by user value
-                3) Reset value
-                4) Choose a different counter
-                5) Exit program
-                """);
+            showAvailableOperationsList();
         System.out.printf("Please select number of operation with %s: \n",
             countersArray[1].getCounterName());
         selectOperation(countersArray[1].getCounterName(), countersArray[1]);
       }
       case "Hot water" -> {
-        System.out.println(
-            """
-                Available operations:
-                1) Increment value by one
-                2) Increment value by user value
-                3) Reset value
-                4) Choose a different counter
-                5) Exit program
-                """);
+            showAvailableOperationsList();
         System.out.printf("Please select number of operation with %s: \n",
             countersArray[2].getCounterName());
         selectOperation(countersArray[2].getCounterName(), countersArray[2]);
       }
       case "Cold water" -> {
-        System.out.println(
-            """
-                Available operations:
-                1) Increment value by one
-                2) Increment value by user value
-                3) Reset value
-                4) Choose a different counter
-                5) Exit program
-                """);
+            showAvailableOperationsList();
         System.out.printf("Please select number of operation with %s: \n",
             countersArray[3].getCounterName());
         selectOperation(countersArray[3].getCounterName(), countersArray[3]);

@@ -45,5 +45,6 @@ public class Main {
           CounterService.countersArray[i].getCounterValue(),
           CounterService.countersArray[i].getCounterUnits());
     }
+    System.out.println();
   }
 }
