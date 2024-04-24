@@ -27,7 +27,7 @@ public class Main {
     CounterService.countersArray[2] = hotWater;
     CounterService.countersArray[3] = coldWater;
 
-    // Использеум различную логику для теста
+    // Используем различную логику для теста
     displayCountersInfo();
     CounterService.selectCounter();
     displayCountersInfo();
