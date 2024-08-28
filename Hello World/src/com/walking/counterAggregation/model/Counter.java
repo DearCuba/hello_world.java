@@ -25,9 +25,9 @@ public class Counter {
   }
 
   public Counter(String name, String unit, int value) {
-    this.value = value;
-    this.unit = unit;
     this.name = name;
+    this.unit = unit;
+    this.value = value;
   }
 
   public String getName() {
