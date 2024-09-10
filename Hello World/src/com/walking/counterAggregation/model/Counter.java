@@ -15,11 +15,13 @@ package com.walking.counterAggregation.model;
  */
 
 public class Counter {
+
+  //   Создаем поля класса
   private final String name;
   private final String unit;
-
   private int value;
 
+  //   Создаем конструкторы класса
   public Counter(String name, String unit) {
     this(name, unit, 0);
   }
@@ -30,6 +32,7 @@ public class Counter {
     this.value = value;
   }
 
+  //   Создаем метода класса (геттеры и сеттеры)
   public String getName() {
     return name;
   }
