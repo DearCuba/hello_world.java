@@ -29,32 +29,39 @@ import com.walking.counterAggregation.service.CounterService;
  * <Название счетчика>: <Значение счетчика>.
  */
 public class Main {
-  public static final String GAS_COUNTER_NAME = "Газ";
-  public static final String COLD_WATER_COUNTER_NAME = "Холодная вода";
-  public static final String HOT_WATER_COUNTER_NAME = "Горячая вода";
-  public static final String ELECTRIC_COUNTER_NAME = "Электричество";
 
-  public static final String M_3_UNIT = "м3";
-  public static final String KW_H_UNIT = "кВт/ч";
+  //    Определяем константы
+  public static final String GAS_COUNTER_NAME = "Gas";
+  public static final String COLD_WATER_COUNTER_NAME = "Cold water";
+  public static final String HOT_WATER_COUNTER_NAME = "Hot water";
+  public static final String ELECTRIC_COUNTER_NAME = "Electricity";
+  public static final String M_3_UNIT = "m3";
+  public static final String KW_H_UNIT = "kW/h";
 
   public static void main(String[] args) {
+
+    //    Создаем счетчики
     Counter gasCounter = new Counter(GAS_COUNTER_NAME, M_3_UNIT);
     Counter coldWaterCounter = new Counter(COLD_WATER_COUNTER_NAME, M_3_UNIT);
     Counter hotWaterCounter = new Counter(HOT_WATER_COUNTER_NAME, M_3_UNIT);
-
     Counter electricCounter = new Counter(ELECTRIC_COUNTER_NAME, KW_H_UNIT);
+
     electricCounter.setValue(15);
 
+    //    Создаем объект/сервис (counterService) для управления счетчиками
     CounterService counterService = new CounterService(gasCounter, coldWaterCounter);
     counterService.addCounter(hotWaterCounter);
     counterService.addCounter(electricCounter);
 
+    //    Добавляем два оставшихся счетчика в сервис
     counterService.increaseCounter(GAS_COUNTER_NAME, 100);
     counterService.increaseCounter(coldWaterCounter, 10);
 
+    //    Выводм в консоль значение всех счетчиков
     printCounterValues(counterService.getAllCounters());
   }
 
+    //    Приватный метод который позволяет вывести значения счетчиков
   private static void printCounterValues(Counter[] counters) {
     for (Counter counter : counters) {
       System.out.printf("%s: %s\n", counter.getName(), counter.getValue());
